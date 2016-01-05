@@ -1,7 +1,11 @@
 use v6;
+use lib 'lib';
 use Test;
-use WebService::SOP::Auth::V1_1;
 
-pass "replace me";
+[
+    'WebService::SOP::Auth::V1_1',
+    'WebService::SOP::Auth::V1_1::Util',
+    'WebService::SOP::Auth::V1_1::X',
+].map(-> $module { use-ok $module, $module });
 
 done-testing;
