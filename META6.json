@@ -1,0 +1,17 @@
+{
+  "name" : "WebService::SOP::Auth::V1_1",
+  "source-url" : "",
+  "perl" : "v6",
+  "resources" : [ ],
+  "build-depends" : [ ],
+  "provides" : {
+    "WebService::SOP::Auth::V1_1" : "lib/WebService/SOP/Auth/V1_1.pm6"
+  },
+  "depends" : [ ],
+  "description" : "blah blah blah",
+  "test-depends" : [ ],
+  "version" : "*",
+  "authors" : [
+    "yowcow"
+  ]
+}
