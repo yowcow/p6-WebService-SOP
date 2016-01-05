@@ -8,8 +8,11 @@
     "WebService::SOP::Auth::V1_1" : "lib/WebService/SOP/Auth/V1_1.pm6"
   },
   "depends" : [ ],
-  "description" : "blah blah blah",
-  "test-depends" : [ ],
+  "description" : "SOP v1.1 API authentication",
+  "test-depends" : [
+    "Test",
+    "Test::META"
+  ],
   "version" : "*",
   "authors" : [
     "yowcow"
