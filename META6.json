@@ -7,7 +7,9 @@
   "provides" : {
     "WebService::SOP::Auth::V1_1" : "lib/WebService/SOP/Auth/V1_1.pm6"
   },
-  "depends" : [ ],
+  "depends" : [
+    "Digest::HMAC"
+  ],
   "description" : "SOP v1.1 API authentication",
   "test-depends" : [
     "Test",
