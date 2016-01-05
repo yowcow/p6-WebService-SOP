@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yowcow/p6-WebService-SOP-Auth-V1_1.svg?branch=master)](https://travis-ci.org/yowcow/p6-WebService-SOP-Auth-V1_1)
+
 NAME
 ====
 
