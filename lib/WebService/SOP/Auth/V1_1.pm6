@@ -1,6 +1,13 @@
 use v6;
+use URI;
+
 unit class WebService::SOP::Auth::V1_1;
 
+has Int $.app-id;
+has Str $.app-secret;
+has Int $.time = time;
+
+submethod BUILD(Int:D :$!app-id, Str:D :$!app-secret, Int :$!time = time) {}
 
 =begin pod
 
