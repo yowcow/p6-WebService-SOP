@@ -1,7 +1,6 @@
 use v6;
 use Digest::HMAC;
 use Digest::SHA;
-use WebService::SOP::Auth::V1_1::X;
 
 unit class WebService::SOP::Auth::V1_1::Util;
 
@@ -11,9 +10,8 @@ method stringify-params(%params --> Str) {
     %params.keys.sort.grep({ $_ !~~ m{^^ sop_ } })
         .map({
 
-            WebService::SOP::Auth::V1_1::X.new(
-                reason => "Only Stringy or Numeric is acceptable for values"
-            ).throw if not (%params{$_} ~~ Stringy || %params{$_} ~~ Numeric);
+            die "Only Stringy or Numeric is acceptable for values"
+                if not (%params{$_} ~~ Stringy || %params{$_} ~~ Numeric);
 
             $_ ~ '=' ~ %params{$_}
         }).join('&');

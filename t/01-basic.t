@@ -5,7 +5,6 @@ use Test;
 [
     'WebService::SOP::Auth::V1_1',
     'WebService::SOP::Auth::V1_1::Util',
-    'WebService::SOP::Auth::V1_1::X',
 ].map(-> $module { use-ok $module, $module });
 
 done-testing;
