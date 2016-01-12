@@ -5,10 +5,12 @@
   "resources" : [ ],
   "build-depends" : [ ],
   "provides" : {
-    "WebService::SOP::Auth::V1_1" : "lib/WebService/SOP/Auth/V1_1.pm6"
+    "WebService::SOP::Auth::V1_1" : "lib/WebService/SOP/Auth/V1_1.pm6",
+    "WebService::SOP::Auth::V1_1::Util" : "lib/WebService/SOP/Auth/V1_1/Util.pm6"
   },
   "depends" : [
-    "Digest::HMAC"
+    "Digest::HMAC",
+    "URI"
   ],
   "description" : "SOP v1.1 API authentication",
   "test-depends" : [
