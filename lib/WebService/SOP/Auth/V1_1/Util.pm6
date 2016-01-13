@@ -1,4 +1,5 @@
 use v6;
+use JSON::Fast;
 use Digest::HMAC;
 use Digest::SHA;
 

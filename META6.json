@@ -10,6 +10,7 @@
   },
   "depends" : [
     "Digest::HMAC",
+    "JSON::Fast",
     "URI"
   ],
   "description" : "SOP v1.1 API authentication",
