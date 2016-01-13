@@ -89,6 +89,7 @@ subtest {
         my Str $sig = ::($class).create-signature(%params, "hogehoge");
 
         ok ::($class).is-signature-valid($sig, %params, "hogehoge", $time);
+
     }, 'Valid';
 
     subtest {
@@ -98,6 +99,7 @@ subtest {
         my Str $sig = ::($class).create-signature(%params, "hogehoge");
 
         ok ::($class).is-signature-valid($sig, %params, "hogehoge", $time);
+
     }, 'Valid';
 
     subtest {
@@ -107,6 +109,7 @@ subtest {
         my Str $sig = ::($class).create-signature(%params, "hogehoge");
 
         ok !::($class).is-signature-valid($sig, %params, "hogehoge", $time);
+
     }, '`time` is too new';
 
 }, 'Test is-signature-valid on Hash';
