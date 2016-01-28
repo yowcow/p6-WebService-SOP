@@ -10,6 +10,7 @@
   },
   "depends" : [
     "Digest::HMAC",
+    "HTTP::UserAgent",
     "JSON::Fast",
     "URI"
   ],
