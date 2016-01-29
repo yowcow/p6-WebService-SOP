@@ -36,6 +36,7 @@ subtest {
             app-secret => 'hogehoge',
         );
 
+        is $req.method,     'POST';
         is $req.uri.scheme, 'http';
         is $req.uri.host,   'hoge';
         is $req.uri.path,   '/fuga';
@@ -59,6 +60,7 @@ subtest {
             app-secret => 'hogehoge',
         );
 
+        is $req.method,     'POST';
         is $req.uri.scheme, 'http';
         is $req.uri.host,   'hoge';
         is $req.uri.path,   '/fuga';
