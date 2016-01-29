@@ -9,7 +9,7 @@ method create-request(URI :$uri, Hash:D :$params, Str:D :$app-secret --> HTTP::R
     die '`time` is required in params' if not $params<time>:exists;
 
     my %query = %( $uri.query-form, %$params );
-    %query<sig> = WebService::SOP::Auth::V1_1::Util.create-signature(%query, $app-secret);
+    %query<sig> = create-signature(%query, $app-secret);
 
     POST(
         URI.new("{$uri.scheme}://{$uri.host}{$uri.path}"),

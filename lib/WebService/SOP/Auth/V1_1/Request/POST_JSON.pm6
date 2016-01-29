@@ -10,7 +10,7 @@ method create-request(URI :$uri, Hash:D :$params, Str:D :$app-secret --> HTTP::R
     die '`time` is required in params' if not $params<time>:exists;
 
     my Str $json-data = to-json(%( $uri.query-form, %$params ), pretty => False);
-    my Str $sig = WebService::SOP::Auth::V1_1::Util.create-signature($json-data, $app-secret);
+    my Str $sig = create-signature($json-data, $app-secret);
 
     POST(
         URI.new("{$uri.scheme}://{$uri.host}{$uri.path}"),

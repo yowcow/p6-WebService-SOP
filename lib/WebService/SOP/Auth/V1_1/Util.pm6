@@ -7,7 +7,7 @@ unit class WebService::SOP::Auth::V1_1::Util;
 
 my \SIG_VALID_FOR_SEC = 10 * 60;
 
-method stringify-params(%params --> Str) {
+our sub stringify-params(%params --> Str) {
     %params.keys.sort.grep({ $_ !~~ m{^^ sop_ } })
         .map({
 
@@ -18,15 +18,15 @@ method stringify-params(%params --> Str) {
         }).join('&');
 }
 
-multi method create-signature(%params, Str $app_secret --> Str) {
-    self.create-signature(self.stringify-params(%params), $app_secret);
+multi sub create-signature(%params, Str $app_secret --> Str) is export {
+    samewith(stringify-params(%params), $app_secret);
 }
 
-multi method create-signature(Str $data, Str $app_secret --> Str) {
+multi sub create-signature(Str $data, Str $app_secret --> Str) is export {
     hmac-hex($app_secret, $data, &sha256);
 }
 
-multi method is-signature-valid(Str $sig, %params, Str $app_secret, Int $time = time --> Bool) {
+multi sub is-signature-valid(Str $sig, %params, Str $app_secret, Int $time = time --> Bool) is export {
 
     # `time` is mandatory
     return False if not %params<time>:exists;
@@ -34,10 +34,10 @@ multi method is-signature-valid(Str $sig, %params, Str $app_secret, Int $time = 
     # `sig` is valid for SIG_VALID_FOR_SEC seconds
     return False if (%params<time> - $time).abs > SIG_VALID_FOR_SEC;
 
-    self.create-signature(%params, $app_secret) eq $sig;
+    create-signature(%params, $app_secret) eq $sig;
 }
 
-multi method is-signature-valid(Str $sig, Str $json-str, Str $app_secret, Int $time = time --> Bool) {
+multi sub is-signature-valid(Str $sig, Str $json-str, Str $app_secret, Int $time = time --> Bool) is export {
     my %params = from-json($json-str);
 
     # `time` is mandatory
@@ -46,5 +46,5 @@ multi method is-signature-valid(Str $sig, Str $json-str, Str $app_secret, Int $t
     # `sig` is valid for SIG_VALID_FOR_SEC seconds
     return False if (%params<time> - $time).abs > SIG_VALID_FOR_SEC;
 
-    self.create-signature($json-str, $app_secret) eq $sig;
+    create-signature($json-str, $app_secret) eq $sig;
 }
