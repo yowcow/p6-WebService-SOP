@@ -7,7 +7,7 @@ use WebService::SOP::Auth::V1_1::Request::GET;
 my Str $class = 'WebService::SOP::Auth::V1_1::Request::GET';
 
 subtest {
-    my URI $uri  .= new('http://hoge/get?hoge=hoge');
+    my URI $uri .= new('http://hoge/get?hoge=hoge');
 
     dies-ok {
         ::($class).create-request(
@@ -28,12 +28,11 @@ subtest {
 }, 'Test create-request fails';
 
 subtest {
-    my Int $time = time;
 
     subtest {
         my HTTP::Request $req = ::($class).create-request(
             uri        => URI.new('http://hoge/fuga'),
-            params     => { foo => 'bar', time => $time },
+            params     => { aaa => 'aaa', bbb => 'bbb', time => 1234 },
             app-secret => 'hogehoge',
         );
 
@@ -43,16 +42,19 @@ subtest {
 
         my %query = $req.uri.query-form;
 
-        is %query<foo>, 'bar';
-        is %query<time>, $time;
-        like %query<sig>, rx{ ^^ <[a..z 0..9]> ** 64 $$ };
+        is-deeply %query, {
+            aaa  => 'aaa',
+            bbb  => 'bbb',
+            time => '1234',
+            sig  => '40499603a4a5e8d4139817e415f637a180a7c18c1a2ab03aa5b296d7756818f6',
+        };
 
     }, 'With no query merge';
 
     subtest {
         my HTTP::Request $req = ::($class).create-request(
-            uri        => URI.new('http://hoge/fuga?bar=foo'),
-            params     => { foo => 'bar', time => $time },
+            uri        => URI.new('http://hoge/fuga?bbb=bbb'),
+            params     => { aaa => 'aaa', time => 1234 },
             app-secret => 'hogehoge',
         );
 
@@ -62,10 +64,12 @@ subtest {
 
         my %query = $req.uri.query-form;
 
-        is %query<foo>, 'bar';
-        is %query<bar>, 'foo';
-        is %query<time>, $time;
-        like %query<sig>, rx{ ^^ <[a..z 0..9]> ** 64 $$ };
+        is-deeply %query, {
+            aaa  => 'aaa',
+            bbb  => 'bbb',
+            time => '1234',
+            sig  => '40499603a4a5e8d4139817e415f637a180a7c18c1a2ab03aa5b296d7756818f6',
+        };
 
     }, 'With query merge';
 
