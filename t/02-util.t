@@ -1,17 +1,17 @@
 use v6;
 use lib 'lib';
 use Test;
-use WebService::SOP::Auth::V1_1::Util;
+use WebService::SOP::V1_1::Util;
 
 subtest {
 
-    is WebService::SOP::Auth::V1_1::Util::stringify-params({
+    is WebService::SOP::V1_1::Util::stringify-params({
         "zzz" => "zzz",
         "yyy" => "yyy",
         "xxx" => "xxx",
     }), 'xxx=xxx&yyy=yyy&zzz=zzz';
 
-    is WebService::SOP::Auth::V1_1::Util::stringify-params({
+    is WebService::SOP::V1_1::Util::stringify-params({
         "sop_hoge" => "hoge",
         "zzz" => "zzz",
         "yyy" => "yyy",
@@ -19,7 +19,7 @@ subtest {
     }), 'xxx=xxx&yyy=yyy&zzz=zzz';
 
     dies-ok {
-        WebService::SOP::Auth::V1_1::Util::stringify-params({
+        WebService::SOP::V1_1::Util::stringify-params({
             "xxx" => {
                 "yyy" => "yyy",
             },

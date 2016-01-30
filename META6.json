@@ -1,12 +1,16 @@
 {
-  "name" : "WebService::SOP::Auth::V1_1",
-  "source-url" : "",
-  "perl" : "v6",
+  "name" : "WebService::SOP",
+  "source-url" : "git@github.com:yowcow/p6-WebService-SOP.git",
+  "perl" : "6",
   "resources" : [ ],
   "build-depends" : [ ],
   "provides" : {
-    "WebService::SOP::Auth::V1_1" : "lib/WebService/SOP/Auth/V1_1.pm6",
-    "WebService::SOP::Auth::V1_1::Util" : "lib/WebService/SOP/Auth/V1_1/Util.pm6"
+    "WebService::SOP" : "lib/WebService/SOP.pm6",
+    "WebService::SOP::V1_1" : "lib/WebService/SOP/V1_1.pm6",
+    "WebService::SOP::V1_1::Request::GET" : "lib/WebService/SOP/V1_1/Request/GET.pm6",
+    "WebService::SOP::V1_1::Request::POST" : "lib/WebService/SOP/V1_1/Request/POST.pm6",
+    "WebService::SOP::V1_1::Request::POST_JSON" : "lib/WebService/SOP/V1_1/Request/POST_JSON.pm6",
+    "WebService::SOP::V1_1::Util" : "lib/WebService/SOP/V1_1/Util.pm6"
   },
   "depends" : [
     "Digest::HMAC",
@@ -14,7 +18,7 @@
     "JSON::Fast",
     "URI"
   ],
-  "description" : "SOP v1.1 API authentication",
+  "description" : "SOP API authentication",
   "test-depends" : [
     "Test",
     "Test::META"

@@ -3,7 +3,7 @@ use JSON::Fast;
 use Digest::HMAC;
 use Digest::SHA;
 
-unit class WebService::SOP::Auth::V1_1::Util;
+unit class WebService::SOP::V1_1::Util;
 
 my \SIG_VALID_FOR_SEC = 10 * 60;
 

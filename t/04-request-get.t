@@ -2,9 +2,9 @@ use v6;
 use lib 'lib';
 use URI;
 use Test;
-use WebService::SOP::Auth::V1_1::Request::GET;
+use WebService::SOP::V1_1::Request::GET;
 
-my Str $class = 'WebService::SOP::Auth::V1_1::Request::GET';
+my Str $class = 'WebService::SOP::V1_1::Request::GET';
 
 subtest {
     my URI $uri .= new('http://hoge/get?hoge=hoge');

@@ -2,9 +2,9 @@ use v6;
 use lib 'lib';
 use JSON::Fast;
 use Test;
-use WebService::SOP::Auth::V1_1::Request::POST_JSON;
+use WebService::SOP::V1_1::Request::POST_JSON;
 
-my Str $class = 'WebService::SOP::Auth::V1_1::Request::POST_JSON';
+my Str $class = 'WebService::SOP::V1_1::Request::POST_JSON';
 
 subtest {
     my URI $uri .= new('http://hoge/get?hoge=hoge');

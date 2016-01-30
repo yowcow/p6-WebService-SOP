@@ -1,9 +1,9 @@
 use v6;
 use HTTP::Request::Common;
 use JSON::Fast;
-use WebService::SOP::Auth::V1_1::Util;
+use WebService::SOP::V1_1::Util;
 
-unit class WebService::SOP::Auth::V1_1::Request::POST_JSON;
+unit class WebService::SOP::V1_1::Request::POST_JSON;
 
 method create-request(URI :$uri, Hash:D :$params, Str:D :$app-secret --> HTTP::Request) {
 
