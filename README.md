@@ -14,7 +14,7 @@ Currently supporting **SOP v1.1** API authentication.
 SEE ALSO
 ========
 
-WebService::SOP::V1_1
+For SOP v1.1 usage: [WebService::SOP::V1_1](repo/blob/master/lib/WebService/SOP/V1_1.pm6)
 
 AUTHOR
 ======
