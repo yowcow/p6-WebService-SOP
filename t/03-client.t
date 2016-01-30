@@ -3,19 +3,19 @@ use lib 'lib';
 use JSON::Fast;
 use Test;
 use URI;
-use WebService::SOP::Auth::V1_1;
+use WebService::SOP::V1_1;
 
 subtest {
 
     subtest {
         dies-ok {
-            WebService::SOP::Auth::V1_1.new(
+            WebService::SOP::V1_1.new(
                 app-secret => 'hogefuga',
             );
         }, 'Fails without app-id';
 
         dies-ok {
-            WebService::SOP::Auth::V1_1.new(
+            WebService::SOP::V1_1.new(
                 app-id     => 'hogefuga',
                 app-secret => 'hogefuga',
             );
@@ -25,13 +25,13 @@ subtest {
 
     subtest {
         dies-ok {
-            WebService::SOP::Auth::V1_1.new(
+            WebService::SOP::V1_1.new(
                 app-id => 123,
             );
         }, 'Fails without app-secret';
 
         dies-ok {
-            WebService::SOP::Auth::V1_1.new(
+            WebService::SOP::V1_1.new(
                 app-id     => 123,
                 app-secret => 12345,
             );
@@ -40,7 +40,7 @@ subtest {
     }, 'Test app-secret';
 
     subtest {
-        my WebService::SOP::Auth::V1_1 $auth
+        my WebService::SOP::V1_1 $auth
             .= new(app-id => 123, app-secret => 'hogefuga');
 
         ok $auth;
@@ -50,11 +50,11 @@ subtest {
 }, 'Test instance';
 
 subtest {
-    my WebService::SOP::Auth::V1_1 $auth
+    my WebService::SOP::V1_1 $auth
         .= new(app-id => 123, app-secret => 'hogehoge');
 
     subtest {
-        my HTTP::Request $req = $auth.get(
+        my HTTP::Request $req = $auth.get-req(
             'http://hoge/fuga?bbb=bbb', { aaa => 'aaa' },
         );
 
@@ -74,7 +74,7 @@ subtest {
     }, 'Creating a GET request';
 
     subtest {
-        my HTTP::Request $req = $auth.post(
+        my HTTP::Request $req = $auth.post-req(
             'http://hoge/fuga?bbb=bbb', { aaa => 'aaa' },
         );
 
@@ -95,7 +95,7 @@ subtest {
     }, 'Creating a POST request';
 
     subtest {
-        my HTTP::Request $req = $auth.post-json(
+        my HTTP::Request $req = $auth.post-json-req(
             'http://hoge/fuga?bbb=bbb', { aaa => 'aaa' },
         );
 

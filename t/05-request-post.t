@@ -2,9 +2,9 @@ use v6;
 use lib 'lib';
 use Test;
 use URI;
-use WebService::SOP::Auth::V1_1::Request::POST;
+use WebService::SOP::V1_1::Request::POST;
 
-my Str $class = 'WebService::SOP::Auth::V1_1::Request::POST';
+my Str $class = 'WebService::SOP::V1_1::Request::POST';
 
 subtest {
     my URI $uri .= new('http://hoge/post?hoge=hoge');

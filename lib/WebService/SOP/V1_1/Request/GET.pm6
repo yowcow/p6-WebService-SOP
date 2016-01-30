@@ -1,9 +1,9 @@
 use v6;
 use HTTP::Request::Common;
 use URI::Escape;
-use WebService::SOP::Auth::V1_1::Util;
+use WebService::SOP::V1_1::Util;
 
-unit class WebService::SOP::Auth::V1_1::Request::GET;
+unit class WebService::SOP::V1_1::Request::GET;
 
 method create-request(URI :$uri, Hash:D :$params, Str:D :$app-secret --> HTTP::Request) {
 

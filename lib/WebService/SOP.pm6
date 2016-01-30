@@ -1,29 +1,31 @@
-[![Build Status](https://travis-ci.org/yowcow/p6-WebService-SOP.svg?branch=master)](https://travis-ci.org/yowcow/p6-WebService-SOP)
+use v6;
+use WebService::SOP::V1_1;
 
-NAME
-====
+unit class WebService::SOP;
+
+=begin pod
+
+=head1 NAME
 
 WebService::SOP - SOP API request creator and validator
 
-DESCRIPTION
-===========
+=head1 DESCRIPTION
 
 WebService::SOP is API authenticatable request creator and validator.
-Currently supporting **SOP v1.1** API authentication.
+Currently supporting B<SOP v1.1> API authentication.
 
-SEE ALSO
-========
+=head1 SEE ALSO
 
 WebService::SOP::V1_1
 
-AUTHOR
-======
+=head1 AUTHOR
 
 yowcow <yowcow@cpan.org>
 
-COPYRIGHT AND LICENSE
-=====================
+=head1 COPYRIGHT AND LICENSE
 
 Copyright 2016 yowcow
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
+=end pod
