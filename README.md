@@ -3,12 +3,18 @@
 NAME
 ====
 
-WebService::SOP - blah blah blah
+WebService::SOP - SOP API request creator and validator
 
 DESCRIPTION
 ===========
 
-WebService::SOP is ...
+WebService::SOP is API authenticatable request creator and validator.
+Currently supporting **SOP v1.1** API authentication.
+
+SEE ALSO
+========
+
+WebService::SOP::V1_1
 
 AUTHOR
 ======

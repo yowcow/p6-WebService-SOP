@@ -1,4 +1,5 @@
 use v6;
+use WebService::SOP::V1_1;
 
 unit class WebService::SOP;
 
@@ -6,12 +7,12 @@ unit class WebService::SOP;
 
 =head1 NAME
 
-WebService::SOP - SOP API request authentication
+WebService::SOP - SOP API request creator and validator
 
 =head1 DESCRIPTION
 
-WebService::SOP is API authenticated request creator and validator.
-Currently supporting SOP v1.1.
+WebService::SOP is API authenticatable request creator and validator.
+Currently supporting B<SOP v1.1> API authentication.
 
 =head1 SEE ALSO
 
