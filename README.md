@@ -1,19 +1,14 @@
-[![Build Status](https://travis-ci.org/yowcow/p6-WebService-SOP-Auth-V1_1.svg?branch=master)](https://travis-ci.org/yowcow/p6-WebService-SOP-Auth-V1_1)
+[![Build Status](https://travis-ci.org/yowcow/p6-WebService-SOP.svg?branch=master)](https://travis-ci.org/yowcow/p6-WebService-SOP)
 
 NAME
 ====
 
-WebService::SOP::Auth::V1_1 - blah blah blah
-
-SYNOPSIS
-========
-
-    use WebService::SOP::Auth::V1_1;
+WebService::SOP - blah blah blah
 
 DESCRIPTION
 ===========
 
-WebService::SOP::Auth::V1_1 is ...
+WebService::SOP is ...
 
 AUTHOR
 ======
