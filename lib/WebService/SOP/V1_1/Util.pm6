@@ -50,7 +50,7 @@ multi sub is-signature-valid(Str $sig, Str $json-str, Str $app_secret, Int $time
     create-signature($json-str, $app_secret) eq $sig;
 }
 
-sub build-query-string(*%query --> Str) is export {
+sub build-query-string(%query! --> Str) is export {
     my Str @elements;
     my Sub $build-query = sub ($k, $v) {
         uri-escape($k) ~ '=' ~ uri-escape($v)

@@ -175,14 +175,14 @@ subtest {
 subtest {
 
     subtest {
-        my Str $q = build-query-string(hoge => 'fuga', fuga => 'hoge');
+        my Str $q = build-query-string({ hoge => 'fuga', fuga => 'hoge' });
 
         is $q, 'hoge=fuga&fuga=hoge';
 
     }, 'Simple key-value';
 
     subtest {
-        my Str $q = build-query-string(hoge => ['ho', 'ge']);
+        my Str $q = build-query-string({ hoge => ['ho', 'ge'] });
 
         is $q, 'hoge=ho&hoge=ge';
 
@@ -190,7 +190,7 @@ subtest {
 
     subtest {
 
-        dies-ok { build-query-string(hoge => { foo => 'bar' }) };
+        dies-ok { build-query-string({ hoge => { foo => 'bar' } }) };
 
     }, 'Dies when value isa Hash';
 
