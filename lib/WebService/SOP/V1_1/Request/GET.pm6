@@ -12,9 +12,5 @@ method create-request(URI :$uri, Hash:D :$params, Str:D :$app-secret --> HTTP::R
     my %query = %( $uri.query-form, %$params );
     %query<sig> = create-signature(%query, $app-secret);
 
-    my Str $query-string = (for %query.kv -> $k, $v {
-        uri-escape($k) ~ '=' ~ uri-escape($v)
-    }).join("&");
-
-    GET(URI.new("{$uri.scheme}://{$uri.host}{$uri.path}?{$query-string}"));
+    GET(URI.new("{$uri.scheme}://{$uri.host}{$uri.path}?{build-query-string(%query)}"));
 }
