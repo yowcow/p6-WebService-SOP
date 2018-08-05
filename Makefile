@@ -1,6 +1,6 @@
 all:
 
 test:
-	prove -e 'perl6 -Ilib' -r t
+	zef test -v .
 
 .PHONY: all test
