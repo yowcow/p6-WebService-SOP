@@ -1,5 +1,5 @@
 all:
-	zef install --deps-only --/test .
+	zef install --/test .
 
 test:
 	zef test -v .
