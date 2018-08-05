@@ -1,6 +1,6 @@
 all:
 	zef install --/test App::Mi6
-	zef install --/test .
+	zef install --/test --deps-only .
 
 build:
 	mi6 build
