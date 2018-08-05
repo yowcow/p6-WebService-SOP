@@ -1,16 +1,12 @@
 FROM rakudo-star
 MAINTAINER yowcow@cpan.org
 
-RUN zef install \
-    Test \
-    Test::META \
-    Digest::HMAC \
-    HTTP::UserAgent \
-    JSON::Fast \
-    URI
+RUN set -eux; \
+    apt-get update && \
+    apt-get install -y make
 
-WORKDIR /tmp/work
+RUN mkdir /work
 
-COPY . /tmp/work
+WORKDIR /work
 
 CMD perl6 -v

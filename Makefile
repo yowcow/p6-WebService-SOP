@@ -1,18 +1,11 @@
-.PHONY: build-docker test shell clean
+all:
+	zef install --/test App::Mi6
+	zef install --/test .
 
-CONTAINER = rakudo-star-webservice-sop
-
-all: build-docker
-
-build-docker: Dockerfile
-	docker pull rakudo-star
-	docker build -t $(CONTAINER) .
+build:
+	mi6 build
 
 test:
-	docker run -it --rm $(CONTAINER) prove -e 'perl6 -Ilib' -r t
+	mi6 test
 
-shell:
-	docker run -it --rm $(CONTAINER) bash
-
-clean:
-	docker rmi $(CONTAINER)
+.PHONY: all build test
