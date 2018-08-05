@@ -178,7 +178,7 @@ subtest {
     subtest {
         my Str $q = build-query-string({ hoge => 'fuga', fuga => 'hoge' });
 
-        is $q, 'hoge=fuga&fuga=hoge';
+        is $q, 'fuga=hoge&hoge=fuga'
 
     }, 'Simple key-value';
 

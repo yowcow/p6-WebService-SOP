@@ -56,18 +56,18 @@ sub build-query-string(%query! --> Str) is export {
         uri-escape($k) ~ '=' ~ uri-escape($v)
     }
 
-    for %query.kv -> $k, $v {
-        given $v {
+    for %query.sort(*.key) -> (:$key, :$value) {
+        given $value {
             when Hash {
                 die "A Hash can't exist in value";
             }
             when Array {
-                for |@$v -> $val {
-                    @elements.push: $build-query($k, $val);
+                for |@$value -> $val {
+                    @elements.push: $build-query($key, $val);
                 }
             }
             default {
-                @elements.push: $build-query($k, $v);
+                @elements.push: $build-query($key, $value);
             }
         }
     }
