@@ -1,34 +1,35 @@
 {
-  "source-url": "git://github.com/yowcow/p6-WebService-SOP.git",
-  "name": "WebService::SOP",
-  "license" : "Artistic-2.0",
-  "test-depends": [
-    "Test",
-    "Test::META"
+  "authors" : [
+    "yowcow"
   ],
-  "build-depends": [],
-  "resources": [],
-  "perl": "6.c",
-  "description": "SOP API authentication",
-  "depends": [
+  "build-depends" : [ ],
+  "depends" : [
     "Digest::HMAC",
     "HTTP::UserAgent",
     "JSON::Fast",
     "URI"
   ],
-  "provides": {
-    "WebService::SOP": "lib/WebService/SOP.pm6",
-    "WebService::SOP::V1_1": "lib/WebService/SOP/V1_1.pm6",
-    "WebService::SOP::V1_1::Request::DELETE": "lib/WebService/SOP/V1_1/Request/DELETE.pm6",
-    "WebService::SOP::V1_1::Request::GET": "lib/WebService/SOP/V1_1/Request/GET.pm6",
-    "WebService::SOP::V1_1::Request::POST": "lib/WebService/SOP/V1_1/Request/POST.pm6",
-    "WebService::SOP::V1_1::Request::POST_JSON": "lib/WebService/SOP/V1_1/Request/POST_JSON.pm6",
-    "WebService::SOP::V1_1::Request::PUT": "lib/WebService/SOP/V1_1/Request/PUT.pm6",
-    "WebService::SOP::V1_1::Request::PUT_JSON": "lib/WebService/SOP/V1_1/Request/PUT_JSON.pm6",
-    "WebService::SOP::V1_1::Util": "lib/WebService/SOP/V1_1/Util.pm6"
+  "description" : "SOP API request creator and validator",
+  "license" : "Artistic-2.0",
+  "name" : "WebService::SOP",
+  "perl" : "6.c",
+  "provides" : {
+    "WebService::SOP" : "lib/WebService/SOP.pm6",
+    "WebService::SOP::V1_1" : "lib/WebService/SOP/V1_1.pm6",
+    "WebService::SOP::V1_1::Request::DELETE" : "lib/WebService/SOP/V1_1/Request/DELETE.pm6",
+    "WebService::SOP::V1_1::Request::GET" : "lib/WebService/SOP/V1_1/Request/GET.pm6",
+    "WebService::SOP::V1_1::Request::POST" : "lib/WebService/SOP/V1_1/Request/POST.pm6",
+    "WebService::SOP::V1_1::Request::POST_JSON" : "lib/WebService/SOP/V1_1/Request/POST_JSON.pm6",
+    "WebService::SOP::V1_1::Request::PUT" : "lib/WebService/SOP/V1_1/Request/PUT.pm6",
+    "WebService::SOP::V1_1::Request::PUT_JSON" : "lib/WebService/SOP/V1_1/Request/PUT_JSON.pm6",
+    "WebService::SOP::V1_1::Util" : "lib/WebService/SOP/V1_1/Util.pm6"
   },
-  "authors": [
-    "yowcow"
+  "resources" : [ ],
+  "source-url" : "git://github.com/yowcow/p6-WebService-SOP.git",
+  "tags" : [ ],
+  "test-depends" : [
+    "Test",
+    "Test::META"
   ],
-  "version": "0.0.3"
+  "version" : "0.0.3"
 }
