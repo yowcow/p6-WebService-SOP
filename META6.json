@@ -25,7 +25,7 @@
     "WebService::SOP::V1_1::Util" : "lib/WebService/SOP/V1_1/Util.pm6"
   },
   "resources" : [ ],
-  "source-url" : "git://github.com/yowcow/p6-WebService-SOP.git",
+  "source-url" : "https://github.com/yowcow/p6-WebService-SOP.git",
   "tags" : [ ],
   "test-depends" : [
     "Test",
