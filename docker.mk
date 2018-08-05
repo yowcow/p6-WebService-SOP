@@ -5,6 +5,11 @@ all: build-image
 build-image:
 	docker build -t $(DOCKERIMAGE) .
 
+build:
+	docker run --rm \
+		-v `pwd`:/work \
+		$(DOCKERIMAGE) make all build
+
 test:
 	docker run --rm \
 		-v `pwd`:/work \
@@ -19,4 +24,4 @@ exec:
 clean:
 	docker rmi $(DOCKERIMAGE)
 
-.PHONY: all build-image test exec clean
+.PHONY: all build-image build test exec clean

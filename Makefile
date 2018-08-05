@@ -1,7 +1,11 @@
 all:
+	zef install --/test App::Mi6
 	zef install --/test .
 
-test:
-	zef test -v .
+build:
+	mi6 build
 
-.PHONY: all test
+test:
+	mi6 test
+
+.PHONY: all build test

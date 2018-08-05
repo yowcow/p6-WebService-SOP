@@ -5,9 +5,10 @@ perl6:
 
 install:
   - rakudobrew build zef
-  - make
+  - zef install --/test Test::META
+  - zef install --/test .
 
 script:
-  - make test
+  - zef test -v .
 
 sudo: false

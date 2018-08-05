@@ -8,13 +8,12 @@ WebService::SOP - SOP API request creator and validator
 DESCRIPTION
 ===========
 
-WebService::SOP is API authenticatable request creator and validator.
-Currently supporting **SOP v1.1** API authentication.
+WebService::SOP is API authenticatable request creator and validator. Currently supporting **SOP v1.1** API authentication.
 
 SEE ALSO
 ========
 
-For SOP v1.1 usage: [WebService::SOP::V1_1](lib/WebService/SOP/V1_1.pm6)
+WebService::SOP::V1_1
 
 AUTHOR
 ======
@@ -27,3 +26,4 @@ COPYRIGHT AND LICENSE
 Copyright 2016 yowcow
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
