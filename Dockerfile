@@ -1,6 +1,10 @@
 FROM rakudo-star
 MAINTAINER yowcow@cpan.org
 
+RUN set -eux; \
+    apt-get update && \
+    apt-get install -y make
+
 RUN zef install \
     Test \
     Test::META \
@@ -9,8 +13,8 @@ RUN zef install \
     JSON::Fast \
     URI
 
-WORKDIR /tmp/work
+RUN mkdir /work
 
-COPY . /tmp/work
+WORKDIR /work
 
 CMD perl6 -v
