@@ -8,7 +8,7 @@ build-image:
 test:
 	docker run --rm \
 		-v `pwd`:/work \
-		$(DOCKERIMAGE) make test
+		$(DOCKERIMAGE) make all test
 
 exec:
 	docker run --rm \

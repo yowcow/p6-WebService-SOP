@@ -5,9 +5,9 @@ perl6:
 
 install:
   - rakudobrew build zef
-  - zef install --deps-only .
+  - make
 
 script:
-  - zef test -v .
+  - make test
 
 sudo: false
