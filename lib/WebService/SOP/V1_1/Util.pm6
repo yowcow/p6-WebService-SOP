@@ -12,7 +12,7 @@ our sub stringify-params(%params --> Str) {
     %params.keys.sort.grep({ $_ !~~ m{^^ sop_ } })
         .map({
 
-            die "Only Stringy or Numeric is acceptable for values"
+            die "Only Stringy or Numeric is acceptable for values { $_ } - { %params.perl } - { %params{$_}.perl }"
                 if not (%params{$_} ~~ Stringy || %params{$_} ~~ Numeric);
 
             $_ ~ '=' ~ %params{$_}

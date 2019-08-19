@@ -10,7 +10,7 @@ method create-request(URI :$uri, Hash:D :$params, Str:D :$app-secret --> HTTP::R
 
     die '`time` is required in params' if not $params<time>:exists;
 
-    my Str $json-data = to-json(%( $uri.query-form, %$params ), pretty => False);
+    my Str $json-data = to-json(%( $uri.query-form.Hash, %$params ), pretty => False);
     my Str $sig = create-signature($json-data, $app-secret);
 
     POST(
