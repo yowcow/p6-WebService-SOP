@@ -83,9 +83,9 @@ subtest {
         is $req.uri.scheme, 'http';
         is $req.uri.host,   'hoge';
         is $req.uri.path,   '/fuga';
-        is-deeply $req.uri.query-form, {};
+        is-deeply $req.uri.query-form.Hash, {};
 
-        my %query = URI::split-query(~$req.content);
+        my %query = URI::split-query(~$req.content).Hash;
 
         is %query<app_id>,  123;
         is %query<aaa>,     'aaa';
@@ -104,7 +104,7 @@ subtest {
         is $req.uri.scheme, 'http';
         is $req.uri.host,   'hoge';
         is $req.uri.path,   '/fuga';
-        is-deeply $req.uri.query-form, {};
+        is-deeply $req.uri.query-form.Hash, {};
 
         like ~$req.header.field('X-Sop-Sig'), rx{ ^^ <[a..f 0..9]> ** 64 $$ };
 
@@ -123,7 +123,7 @@ subtest {
         );
 
         is $req.method, 'PUT';
-        is-deeply $req.uri.query-form, {};
+        is-deeply $req.uri.query-form.Hash, {};
 
         my %query = URI::split-query(~$req.content);
 
@@ -141,7 +141,7 @@ subtest {
         );
 
         is $req.method, 'PUT';
-        is-deeply $req.uri.query-form, {};
+        is-deeply $req.uri.query-form.Hash, {};
 
         like ~$req.header.field('X-Sop-Sig'), rx{ ^^ <[a..f 0..9]> ** 64 $$ };
 

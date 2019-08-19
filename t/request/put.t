@@ -42,7 +42,7 @@ subtest {
         is $req.uri.host,   'hoge';
         is $req.uri.path,   '/fuga';
         is $req.header.field('Content-Type'), 'application/x-www-form-urlencoded';
-        is-deeply $req.uri.query-form, {};
+        is-deeply $req.uri.query-form.Hash, {};
 
         my %query = URI::split-query(~$req.content);
 
@@ -67,7 +67,7 @@ subtest {
         is $req.uri.host,   'hoge';
         is $req.uri.path,   '/fuga';
         is $req.header.field('Content-Type'), 'application/x-www-form-urlencoded';
-        is-deeply $req.uri.query-form, {};
+        is-deeply $req.uri.query-form.Hash, {};
 
         my %query = URI::split-query(~$req.content);
 
